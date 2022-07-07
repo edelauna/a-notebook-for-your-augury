@@ -8,7 +8,7 @@ au·gu·ry
 * [x] some sort of caching for unchanged models 
 * [ ] add some better documentation into the notebook
 * [ ] Refactor the whole `_guard` pattern applied throughout - there's probably a better way to do this.
-    * added `overwrite=[True|False] for this
+    * added `overwrite=[True|False]` for this
 * [ ] Centralize Column naming logic (e.g. `"%s_clean" % c`, used too much)
 * [ ] limited to <= 3 models atm - look into allowing n
 * [ ] Best way to drop nulls when evaluating datasets in two parts (continuous vs. categorical)
