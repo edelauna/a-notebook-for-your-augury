@@ -1,42 +1,57 @@
 class Augury:
-  def constructor_(cls, **deps):
+  def constructor():
     """
-    Sets helper functions on the empty initialized class
-    
+    Decorator which adds funcs to this class    
+    """
+    def decorator(*funcs):
+      for func in funcs:
+        setattr(__class__, func.__name__, func)
+    return decorator
+  def _attr(self, *readers, overwrite=True, **writers):
+    """
+    Returns the relevent self.attr.
+    Will also set a value if passed with a value.
       Parameters
       ----------
-      cls: object
-        The pythong Class to add helper methods toos
-      **deps: Dictionary
-        Dictionary of dependancies which helper methods will need
+      readers : str
+          attr to return
+      overwrite : bool
+          if False, will not set a value, if a value exists
+      writers : Dict
+          key as attr to return, value as value to set.
+      Returns
+      ----------
+      tuple of ordered attrs
     """
-    def decorator(func):
-      def _wrapper(self, *args, **kwargs): 
-        func(self, *args, **{**deps, **kwargs})
-      setattr(cls, func.__name__, _wrapper)
-      _wrapper.__name__ = func.__name__
-      _wrapper.__doc__ = func.__doc__
-    return decorator
-
-  """
-  Example helper method
-    def foo(self, **kwargs):
-    \""" Need to explicilty check for dependancies \"""
-  np = kwargs.get("np")
-  print(np.random.rand(3,2))
-  """
+    _attrs = []
+    for attr in readers:
+      _attrs.append(getattr(self,attr)) if hasattr(self, attr) else _attrs.append(None)
+    for attr in writers:
+      if not hasattr(self, attr) or overwrite:
+        setattr(self, attr, writers[attr])
+      _attrs.append(getattr(self,attr))
+    return tuple(_attrs)
+  def _hash(self, hash, *keys):
+    """
+    Helper function to destructure a hash.
+    ...didn't end up using this as much
+      Parameters
+      ----------
+      hash : Dictionary
+          hash to destructure
+      keys : str
+          values at key will be returned.
+      Returns
+      ----------
+      tuple of ordered hash values
+    """
+    results = []
+    for key in keys:
+      results.append(hash[key]) if key in hash else results.append(None)
+    return tuple(results)
 
 """
-Proof of concept from notebook for loading pickle
-
-import joblib
-joblib.dump(Augury,"./Augury.pkl")
-
-_Augury = joblib.load("./Augury.pkl")
-
-import numpy as np
-# Note Augury must be a class within the notebook
-# np is an example of dependancy injection
-# Could probably do this in some kind of loop. 
-_Augury.constructor_(Augury, np=np)(_Augury.foo)
+TODO: move functions from Notebook to here, to add tests, and better
+track changes. 
+TODO: Load this class via pickle into jupyter notebook
 """
