@@ -4,7 +4,7 @@ au·gu·ry
 
 Goal: Create a Notebook which can automate much of the machine learning minutiate duplicated across tasks.
 
-Highlight: Got little bit over [80% on Titanic Spaceship Task]()
+Highlight: Got little bit over [80% on Titanic Spaceship Task](https://www.kaggle.com/code/elliottdelaunay/spaceship-titanic-augury-template?scriptVersionId=100361258)
 
 # Todo:
 * [ ] add some better documentation into the notebook
