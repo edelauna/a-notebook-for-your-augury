@@ -37,3 +37,11 @@ Highlight: Got little bit over [80% on Titanic Spaceship Task](https://www.kaggl
 * [X] Best way to handle nulls (since also dropped from Test)
 * [X] Feature engineering to add new features (currently replaces existing)
     * [X] Encoding categorical engineered features, which were not present in training data. 
+
+# Development
+Using VS Code so that it's easier to track changes, as well as docker.
+1. `docker pull jupyer/base-notebook`
+2. `docker run -p 8888:8888 jupyter/base-notebook`
+  3. Should output a server url and token, in VS Code there should be an option at the bottom of the screen to connect to a Jupyer Server - click that and then paste the link.
+  4. Will Need to change Kernal (top right of VsCode when notebook is open)
+  5. Might need to pip intall some dependancies (might add that as a cell early on...)
