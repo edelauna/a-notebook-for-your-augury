@@ -7,6 +7,7 @@ Goal: Create a Notebook which can automate much of the machine learning minutiat
 Highlight: Got little bit over [80% on Titanic Spaceship Task](https://www.kaggle.com/code/elliottdelaunay/spaceship-titanic-augury-template?scriptVersionId=100361258)
 
 # Todo:
+* [ ] Ad section for ensuring all dependancies are installed
 * [ ] Figure out some better pattern to apply... a notebook with differant methods all over the places is making it confusing to iterate on
 * [ ] Refactor processing and add rules flow - lots of duplicate input_guards
 * [ ] Centralize Column naming logic (e.g. `"%s_clean" % c`, used too much) 
@@ -39,9 +40,9 @@ Highlight: Got little bit over [80% on Titanic Spaceship Task](https://www.kaggl
     * [X] Encoding categorical engineered features, which were not present in training data. 
 
 # Development
-Using VS Code so that it's easier to track changes, as well as docker.
+Using docker and VS Code with Python and Jupyter extensions so that it's easier to track changes.
 1. `docker pull jupyer/base-notebook`
-2. `docker run -p 8888:8888 jupyter/base-notebook`
+2. `docker run -p 8888:8888  -v $(pwd):/home/jovyan/work jupyter/scipy-notebook`
   3. Should output a server url and token, in VS Code there should be an option at the bottom of the screen to connect to a Jupyer Server - click that and then paste the link.
   4. Will Need to change Kernal (top right of VsCode when notebook is open)
-  5. Might need to pip intall some dependancies (might add that as a cell early on...)
+  5. Might need to pip intall some dependancies
