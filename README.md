@@ -44,7 +44,6 @@ Pad where I'm listing items I'd like to do, as I learn about machine _learning_ 
 
 # Development
 Using docker and VS Code with Python and Jupyter extensions so that it's easier to track changes.
-1. `docker pull jupyer/base-notebook`
 2. `docker run -p 8888:8888  -v $(pwd):/home/jovyan/work jupyter/scipy-notebook`
   3. Should output a server url and token, in VS Code there should be an option at the bottom of the screen to connect to a Jupyer Server - click that and then paste the link.
   4. Will Need to change Kernal (top right of VsCode when notebook is open)
