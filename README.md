@@ -2,12 +2,15 @@
 au·gu·ry
 > a sign of what will happen in the future; an omen.
 
-Goal: Create a Notebook which can automate much of the machine learning minutiate duplicated across tasks.
+Goal: Create a Notebook which can act as a boilerplate, and help automate much of the machine learning minutiate duplicated across tasks.
+
+Open [A_Notebook_for_your_Augury.ipynb](A_Notebook_for_your_Augury.ipynb) in Google Colab for quick review.
 
 Highlight: Got little bit over [80% on Titanic Spaceship Task](https://www.kaggle.com/code/elliottdelaunay/spaceship-titanic-augury-template?scriptVersionId=100361258)
 
 # Todo:
-* [ ] Ad section for ensuring all dependancies are installed
+Pad where I'm listing items I'd like to do, as I learn about machine _learning_ and python. 
+* [ ] Add section for ensuring all dependancies are installed
 * [ ] Figure out some better pattern to apply... a notebook with differant methods all over the places is making it confusing to iterate on
 * [ ] Refactor processing and add rules flow - lots of duplicate input_guards
 * [ ] Centralize Column naming logic (e.g. `"%s_clean" % c`, used too much) 
