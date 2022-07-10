@@ -7,18 +7,19 @@ Goal: Create a Notebook which can automate much of the machine learning minutiat
 Highlight: Got little bit over [80% on Titanic Spaceship Task](https://www.kaggle.com/code/elliottdelaunay/spaceship-titanic-augury-template?scriptVersionId=100361258)
 
 # Todo:
-* [ ] add some better documentation into the notebook
+* [ ] Figure out some better pattern to apply... a notebook with differant methods all over the places is making it confusing to iterate on
+* [ ] Refactor processing and add rules flow - lots of duplicate input_guards
+* [ ] Centralize Column naming logic (e.g. `"%s_clean" % c`, used too much) 
+    - maybe implement state machines per column?
 * [ ] Add correlation heatmap visualization and process for dropping columns
 * [ ] Add more visualization to test data processing for confirmation
 * [ ] Improved encoding handling when column has bool types, mixed with a 3rd value for NaNs (currently using try, except)
-* [ ] Centralize Column naming logic (e.g. `"%s_clean" % c`, used too much) 
-    - maybe implement state machines per column?
-* [ ] Load from Pickel
+* [ ] Move everything in Python Main Class and then Load from Pickel?
 * [ ] Add tests - either Migrate code to Augury.py and add tests, or put them all in the last cell of notebook...
 * [ ] Verify if I'm doing KMeans correctly
     * [ ] Automate how best num of clusters can be chosen
 * [ ] Does the ##Fit section make sense?
-* [ ] Implement ##Tune section (thinking to test against smaller feature set for performance check)
+* [ ] Implement ##Tune section (thinking to test against smaller feature set [e.g.`augur.X_compress_train`] for performance check)
 * [ ] Ability to model data from images (probably a differant notebook)
 * [ ] Update Multilater Perception Models, add Naive Bayes boosting for things like NLP (probably a different notebook)
 * [ ] Loading data other than csv - e.g. sql
@@ -26,7 +27,7 @@ Highlight: Got little bit over [80% on Titanic Spaceship Task](https://www.kaggl
     * [ ] Is (BayesSearchCV)[https://scikit-optimize.github.io/stable/modules/generated/skopt.BayesSearchCV.html] worth it?
         - runs a bit slower, but score is generally the same...
 * [x] Replace LabelEncoder with OrdinalEncoder for single columns
-* [x] some sort of caching for unchanged models 
+* [x] some sort of caching for unchanged longer running functions 
 * [X] Refactor the whole `_guard` pattern applied throughout - there's probably a better way to do this.
     * added `overwrite=[True|False]` for this
 * [X] Inject dependancies into functions for documentation purposes
